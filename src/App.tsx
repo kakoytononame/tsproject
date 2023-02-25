@@ -10,10 +10,11 @@ const App = () => {
     {name:"Папка 2"},
     {name:"Папка 3"},
   ]
+  
     return (
       <div className={style.App}>
         <MainHeader/>
-        <LeftContext names={names}/>
+        <LeftContext names={names} />
       </div>  
 
     );

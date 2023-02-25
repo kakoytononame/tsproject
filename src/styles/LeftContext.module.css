@@ -15,5 +15,8 @@
  background-color: white;
  border-radius: 5px;
  border-style: solid;
-
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
