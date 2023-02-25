@@ -7,7 +7,7 @@ const App = () => {
     return (
       <div className={style.App}>
         <MainHeader/>
-        <LeftContext/>
+        <LeftContext name={{"1","2","3"}}/>
       </div>  
 
     );

@@ -1,5 +1,5 @@
 .LeftContext{
-    width: 400px;
+    width: max-content;
     height: 100vh;
     background-color: silver;
     display: flex;
@@ -7,4 +7,5 @@
     border: 5px black;
     border-style: solid;
     border-top:0px;
+    justify-content: flex-start;
 }

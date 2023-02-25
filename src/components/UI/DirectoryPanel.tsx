@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "../styles/ListPanel.module.css"
+import styles from "../styles/DirectoryPanel.module.css"
 
-const ListPanel=()=>{
+const 
+DirectoryPanel=()=>{
     return(
         <div className={styles.LeftContext}>
             
@@ -9,4 +10,4 @@ const ListPanel=()=>{
     )
 }
 
-export default ListPanel;
+export default DirectoryPanel;
