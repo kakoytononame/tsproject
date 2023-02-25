@@ -3,15 +3,17 @@ import styles from "../styles/LeftContext.module.css"
 import {IDirectorys} from "../types/types"
 
 interface directorysListProps{
-    name:IDirectorys[]
+    names:IDirectorys[]
 }
-const LeftContext:FC<directorysListProps>=({name})=>{
+const LeftContext:FC<directorysListProps>=({names})=>{
 
     return(
         <div className={styles.LeftContext}>
-            {name.map(user=>
-                console.log(user);
-                )}
+            {
+                names.map(name=>
+                    <button className={styles.LeftContext_DirectoryButtons}>{name.name}</button>
+                    )
+            }
         </div>
     )
 }

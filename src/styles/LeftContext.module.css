@@ -9,3 +9,11 @@
     border-top:0px;
     justify-content: flex-start;
 }
+.LeftContext_DirectoryButtons{
+ height: 50px;
+ width: 100px;
+ background-color: white;
+ border-radius: 5px;
+ border-style: solid;
+
+}
