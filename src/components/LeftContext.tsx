@@ -1,4 +1,4 @@
-import React,{FC}from "react";
+import React,{FC, useState}from "react";
 import styles from "../styles/LeftContext.module.css"
 import {IDirectorys} from "../types/types"
 
@@ -6,6 +6,8 @@ import {IDirectorys} from "../types/types"
 interface directorysListProps{
     names:IDirectorys[]
 }
+
+
 
 const LeftContext:FC<directorysListProps>=({names})=>{
 
@@ -19,7 +21,7 @@ const LeftContext:FC<directorysListProps>=({names})=>{
             var list=names;
             names.push(names[0]);   
             console.log(names);
-            
+        
         }
         
     }
