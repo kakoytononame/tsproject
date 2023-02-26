@@ -11,17 +11,18 @@ interface notepadsListProps{
 const NotepadPanel:FC<notepadsListProps>=({names,setNotes})=>{
     
     const [folders,setFolders]=useState<INotepad[]>(names); 
-    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,index:number) => {
+
+    const divClickedHandler = (index:number) => {
         const notes=folders[index].notes;
+
         setNotes(notes);
-        console.log(folders);
     }
     return(
         <div className={styles.NotepadsPanel}>
             {
-                folders.map((name,index)=>
-                    <div key={index} onClick={(e)=>divClickedHandler(e,index)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
-                    )
+                names.map((name,index)=>
+                    <div key={index} onClick={(e)=>divClickedHandler(index)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
+                )
             }
         </div>
     )

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MainHeader from './components/MainHeader';
 import LeftContext from './components/LeftContext';
 import style from './styles/App.module.css';
 import { IDirectorys, INotepad } from './types/types';
+import { useActions } from './hooks/useActions';
+import { useTypeSelector } from './hooks/useTypedSelector';
 const App = () => {
 
-  const names:IDirectorys[]=[
-    {name:"Папка 1",notepads:[{name:"Блокнот 1",notes:[{name:"Заметка 1"}]}]},
-    {name:"Папка 2",notepads:[{name:"Блокнот 2",notes:[{name:"Заметка 1"}]}]},
-    {name:"Папка 3",notepads:[{name:"Блокнот 3",notes:[{name:"Заметка 1"}]}],},
-  ]
+  const {setDirectory} = useActions();
   
+   useEffect(()=>{
+      setDirectory();
+   },[]);
   
-  
-    return (
+  return (
       <div className={style.App}>
         <MainHeader/>
-        <LeftContext  names={names} />
+        <LeftContext/>
+        
 
       </div>  
 

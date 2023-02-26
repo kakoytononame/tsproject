@@ -1,0 +1,22 @@
+.NotesPanel{
+    width: max-content;
+    height: 100vh;
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    border: 5px black;
+    border-style: solid;
+    border-top:0px;
+    justify-content: flex-start;
+}
+.NotesPanel_NotesButtons{
+ height: 50px;
+ width: 100px;
+ background-color: white;
+ border-radius: 5px;
+ border-style: solid;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}

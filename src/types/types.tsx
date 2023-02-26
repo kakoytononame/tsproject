@@ -10,3 +10,7 @@ export interface INotepad{
 export interface INote{
     name:string
 }
+
+export enum LoadTypes{
+    loading = 'loading'
+}
