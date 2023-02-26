@@ -17,11 +17,11 @@ const DirectoryPanel:FC<directorysListProps>=({setNotepads})=>{
     const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,index:number) => {
         const notepads=folders[index].notepads;
         setNotepads(notepads);
-        
-        addDirectory({
+        const directory:IDirectorys={
             name:`Папка ${folders.length}`,
             notepads:[]
-        })
+        }
+        addDirectory(directory)
     }
     
     return(
