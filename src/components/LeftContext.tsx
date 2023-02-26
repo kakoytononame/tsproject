@@ -7,7 +7,7 @@ import DirectoryPanel from "./DirectoryPanel";
 
 interface LeftContextProps{
     names:IDirectorys[]
-    notepads:INotepad[]
+    
 }
 
 
