@@ -1,37 +1,25 @@
 import React,{FC, useState}from "react";
 import styles from "../styles/LeftContext.module.css"
-import {IDirectorys} from "../types/types"
+import {IDirectorys, INote, INotepad} from "../types/types"
+import NotepadPanel from "./NotepadsPanel";
+import DirectoryPanel from "./DirectoryPanel";
 
 
-interface directorysListProps{
+interface LeftContextProps{
     names:IDirectorys[]
+    notepads:INotepad[]
 }
 
 
 
-const LeftContext:FC<directorysListProps>=({names})=>{
+const LeftContext:FC<LeftContextProps>=({names})=>{
 
-    
-        const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>) => {
-        var div = event.currentTarget.innerHTML;
-        var curel=event.currentTarget;
-         
-        if(div==="Папка 1"){
-            var lgt=names.length+1;
-            var list=names;
-            names.push(names[0]);   
-            console.log(names);
-        
-        }
-        
-    }
+    const[notepads,setNotepads]=useState<INotepad[]>([]);
+    const[notes,setNotes]=useState<INote[]>([]);
     return(
         <div className={styles.LeftContext}>
-            {
-                names.map(name=>
-                    <div onClick={divClickedHandler} className={styles.LeftContext_DirectoryButtons}>{name.name}</div>
-                    )
-            }
+            <DirectoryPanel setNotepads={setNotepads} names={names}/>
+            <NotepadPanel setNotes={setNotes} names={notepads}/>
         </div>
     )
 }

@@ -3,7 +3,7 @@
     height: 100vh;
     background-color: silver;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 5px black;
     border-style: solid;
     border-top:0px;

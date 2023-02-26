@@ -1,4 +1,4 @@
-.DirectoryPanel{
+.NotepadsPanel{
     width: max-content;
     height: 100vh;
     background-color: silver;
@@ -9,7 +9,7 @@
     border-top:0px;
     justify-content: flex-start;
 }
-.DirectoryPanel_DirectoryButtons{
+.NotepadsPanel_NotepadsButtons{
  height: 50px;
  width: 100px;
  background-color: white;
