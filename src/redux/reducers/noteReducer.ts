@@ -2,7 +2,7 @@ import { LoadTypes } from "../../types/types";
 import { INoteState, NoteAction, NotesActionTypes } from "../types/notes";
 
 const initialState:INoteState = {
-    name:"",
+    name:[],
     load:null,
     error:null
 }
@@ -18,21 +18,21 @@ export const noteReducer=(state:INoteState=initialState,action:NoteAction):INote
         }
         case NotesActionTypes.FETCH_NOTE_SUCCES:{
             return{
-                name:state.name,
+                name:action.payload,
                 error:null,
                 load:null
             }
         }
         case NotesActionTypes.FETCH_NOTE_ERROR:{
             return{
-                name:"",
+                name:[],
                 error:action.payload,
                 load:null
             }
         }
         case NotesActionTypes.ADD_NOTE:{
             return{
-                name:state.name+action.payload,
+                name:[...state.name,action.payload],
                 load:null,
                 error:null
             }

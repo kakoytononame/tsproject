@@ -8,9 +8,9 @@ export const setDirectory = () => {
         dispatch({type:DirectorysActionTypes.FETCH_DIRECTORY});
 
         try{
-            setTimeout(()=>{
+            
                 dispatch({type:DirectorysActionTypes.FETCH_DIRECTORY_SUCCESS,payload:names})
-            },2000)
+            
         } catch (error) {
             dispatch({type:DirectorysActionTypes.FETCH_DIRECTORY_ERROR,payload:"Произошла ошибка"});
         }

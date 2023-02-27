@@ -15,7 +15,7 @@ const DirectoryPanel=()=>{
     const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,name:string) => {
        
         setNotepads(name);
-
+        
     }
     
     return(

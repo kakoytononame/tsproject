@@ -6,21 +6,24 @@ import { setNotes } from "../redux/action-creators/notes";
 
 
 
-const NotepadPanel=()=>{
+const NotesPanel=()=>{
 
     const {name}=useTypeSelector(state=>state.notes);
 
-    const divClickedHandler = (index:number) => {
-        const note=name[index];
+    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,name:string) => {
 
-        setNotes();
+        
     }
 
     return(
         <div className={style.NotesPanel}>
+            {name.map((name,index)=>
+                    <div key={index} onClick={(e)=>divClickedHandler(e,name.name)} className={style.NotesPanel_NotesButtons}>{name.name}</div>
+                )
+                }
         </div>
     )
 
 }
 
-export default NotepadPanel;
+export default NotesPanel;

@@ -1,7 +1,7 @@
 import { INote, LoadTypes } from "../../types/types";
 
 export interface INoteState{
-    name:string,
+    name:INote[],
     load:LoadTypes|null,
     error:string|null
     

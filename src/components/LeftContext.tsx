@@ -15,18 +15,17 @@ interface LeftContextProps{
 
 const LeftContext:FC<LeftContextProps>=()=>{
 
-    const[notepads,setNotepads]=useState<INotepad[]>([]);
-    const[notes,setNotes]=useState<INote[]>([]);
-    const[note,setNotesRedact]=useState<INote[]>([])
+
     const {folders,load} = useTypeSelector(state=>state.directory);
-    
+    const {notepads}=useTypeSelector(state=>state.notepad)
+    const{name}=useTypeSelector(state=>state.notes)
 
     return(
         <div className={styles.LeftContext}>
             {folders.length > 0 && <>
                 <DirectoryPanel />
                 {notepads.length > 0 && <NotepadPanel />}
-                {notes.length>0 && <NotesPanel />}
+                {name.length>0 && <NotesPanel />}
             </>}
             {load === LoadTypes.loading && <h1>...Loading</h1>}
         </div>

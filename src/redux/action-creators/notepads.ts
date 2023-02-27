@@ -8,9 +8,9 @@ export const setNotepads = (name:string) => {
         dispatch({type:NotepadsActionTypes.FETCH_NOTEPAD});
 
         try{
-            setTimeout(()=>{
+            
                 dispatch({type:NotepadsActionTypes.FETCH_NOTEPAD_SUCCES,payload:notepadnames})
-            },2000)
+            
         } catch (error) {
             dispatch({type:NotepadsActionTypes.FETCH_NOTEPAD_ERROR,payload:"Произошла ошибка"});
         }

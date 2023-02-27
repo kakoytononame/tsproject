@@ -3,7 +3,7 @@ import { INote, INotepad } from "../types/types";
 import styles from "../styles/NotepadsPanel.module.css"
 import { useActions } from "../hooks/useActions";
 import { useTypeSelector } from "../hooks/useTypedSelector";
-import { setNotes } from "../redux/action-creators/notes";
+
 
 
 
@@ -11,18 +11,17 @@ import { setNotes } from "../redux/action-creators/notes";
 const NotepadPanel=()=>{
     
     const {notepads} = useTypeSelector(state=>state.notepad);
-    const {addNotepad} = useActions();
+    const {addNotepad,setNotes} = useActions();
 
-    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,index:number) => {
-        const notes=notepads[index].notes;
+    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,name:string) => {
 
-        setNotes();
+        setNotes(name);
     }
     return(
         <div className={styles.NotepadsPanel}>
             {
                 notepads.map((name,index)=>
-                    <div key={index} onClick={(e)=>divClickedHandler(e,index)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
+                    <div key={index} onClick={(e)=>divClickedHandler(e,name.name)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
                 )
             }
         </div>
