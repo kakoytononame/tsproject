@@ -17,9 +17,8 @@ export const notepadReducer=(state:INotepadState=initialState,action:NotepadActi
             }
         }
         case NotepadsActionTypes.FETCH_NOTEPAD_SUCCES:{
-            console.log(action.payload)
             return{
-                notepads:[...action.payload],
+                notepads:action.payload,
                 error:null,
                 load:null
             }
