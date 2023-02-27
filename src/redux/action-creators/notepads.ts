@@ -3,7 +3,7 @@ import { INotepad } from "../../types/types";
 import { notepadnames } from "../../services";
 import { NotepadAction, NotepadsActionTypes } from "../types/notepad";
 
-export const setNotepads = () => {
+export const setNotepads = (name:string) => {
     return async(dispatch:Dispatch<NotepadAction>)=>{
         dispatch({type:NotepadsActionTypes.FETCH_NOTEPAD});
 

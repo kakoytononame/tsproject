@@ -1,38 +1,38 @@
 import { LoadTypes } from "../../types/types";
-import { INotepadState, NotepadAction, NotepadsActionTypes } from "../types/notepad";
+import { INoteState, NoteAction, NotesActionTypes } from "../types/notes";
 
-const initialState:INotepadState = {
-    notepads:[],
+const initialState:INoteState = {
+    name:"",
     load:null,
     error:null
 }
 
-export const notepadReducer=(state:INotepadState=initialState,action:NotepadAction):INotepadState=>{
+export const noteReducer=(state:INoteState=initialState,action:NoteAction):INoteState=>{
     switch(action.type){
-        case NotepadsActionTypes.FETCH_NOTEPAD:{
+        case NotesActionTypes.FETCH_NOTE:{
             return{
-                notepads:state.notepads,
+                name:state.name,
                 error:null,
                 load:LoadTypes.loading
             }
         }
-        case NotepadsActionTypes.FETCH_NOTEPAD_SUCCES:{
+        case NotesActionTypes.FETCH_NOTE_SUCCES:{
             return{
-                notepads:action.payload,
+                name:state.name,
                 error:null,
                 load:null
             }
         }
-        case NotepadsActionTypes.FETCH_NOTEPAD_ERROR:{
+        case NotesActionTypes.FETCH_NOTE_ERROR:{
             return{
-                notepads:[],
+                name:"",
                 error:action.payload,
                 load:null
             }
         }
-        case NotepadsActionTypes.ADD_NOTEPAD:{
+        case NotesActionTypes.ADD_NOTE:{
             return{
-                notepads:[...state.notepads,action.payload],
+                name:state.name+action.payload,
                 load:null,
                 error:null
             }

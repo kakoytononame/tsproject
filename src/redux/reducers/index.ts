@@ -1,10 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { directoryReducer } from "./folderReducer";
-import { notepadReducer } from "./noteReducer";
+import { notepadReducer } from "./notepadReducer";
+import {noteReducer} from "./noteReducer";
 
 export const rootReducer = combineReducers({
     directory:directoryReducer,
-    notepad:notepadReducer
+    notepad:notepadReducer,
+    notes:noteReducer
 });
 
 

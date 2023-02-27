@@ -5,30 +5,24 @@ import { useTypeSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
 
 
-interface directorysListProps{
-    setNotepads:React.Dispatch<React.SetStateAction<INotepad[]>>
-}
 
-const DirectoryPanel:FC<directorysListProps>=({setNotepads})=>{
+
+
+const DirectoryPanel=()=>{
     const {folders} = useTypeSelector(state=>state.directory);
-
-    const {addDirectory} = useActions();
+    const {addDirectory,setNotepads} = useActions();
     
-    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,index:number) => {
-        const notepads=folders[index].notepads;
-        setNotepads(notepads);
-        const directory:IDirectorys={
-            name:`Папка ${folders.length}`,
-            notepads:[]
-        }
-        addDirectory(directory)
+    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,name:string) => {
+       
+        setNotepads(name);
+
     }
     
     return(
         <div className={styles.DirectoryPanel}>
             {
                 folders.map((name,index)=>
-                    <div key={index} onClick={(e)=>divClickedHandler(e,index)} className={styles.DirectoryPanel_DirectoryButtons}>{name.name}</div>
+                    <div key={index} onClick={(e)=>divClickedHandler(e,name.name)} className={styles.DirectoryPanel_DirectoryButtons}>{name.name}</div>
                     )
             }
         </div>

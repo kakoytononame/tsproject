@@ -1,27 +1,28 @@
 import React,{FC, useState} from "react";
 import { INote, INotepad } from "../types/types";
 import styles from "../styles/NotepadsPanel.module.css"
+import { useActions } from "../hooks/useActions";
+import { useTypeSelector } from "../hooks/useTypedSelector";
+import { setNotes } from "../redux/action-creators/notes";
 
 
-interface notepadsListProps{
-    names:INotepad[],
-    setNotes:React.Dispatch<React.SetStateAction<INote[]>>
-}
 
-const NotepadPanel:FC<notepadsListProps>=({names,setNotes})=>{
+
+const NotepadPanel=()=>{
     
-    const [folders,setFolders]=useState<INotepad[]>(names); 
+    const {notepads} = useTypeSelector(state=>state.notepad);
+    const {addNotepad} = useActions();
 
-    const divClickedHandler = (index:number) => {
-        const notes=folders[index].notes;
+    const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,index:number) => {
+        const notes=notepads[index].notes;
 
-        setNotes(notes);
+        setNotes();
     }
     return(
         <div className={styles.NotepadsPanel}>
             {
-                names.map((name,index)=>
-                    <div key={index} onClick={(e)=>divClickedHandler(index)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
+                notepads.map((name,index)=>
+                    <div key={index} onClick={(e)=>divClickedHandler(e,index)} className={styles.NotepadsPanel_NotepadsButtons}>{name.name}</div>
                 )
             }
         </div>

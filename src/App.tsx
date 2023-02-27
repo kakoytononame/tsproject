@@ -5,6 +5,8 @@ import style from './styles/App.module.css';
 import { IDirectorys, INotepad } from './types/types';
 import { useActions } from './hooks/useActions';
 import { useTypeSelector } from './hooks/useTypedSelector';
+import MidleContext from './components/MiddleContext';
+import MiddleContainer from './components/MiddleContainer';
 const App = () => {
 
   const {setDirectory} = useActions();
@@ -16,8 +18,7 @@ const App = () => {
   return (
       <div className={style.App}>
         <MainHeader/>
-        <LeftContext/>
-        
+        <MiddleContainer/>
 
       </div>  
 

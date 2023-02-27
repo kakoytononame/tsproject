@@ -1,24 +1,26 @@
 import { INote } from "../types/types";
 import style from '../styles/NotesPanel.module.css';
+import { useTypeSelector } from "../hooks/useTypedSelector";
+import { FC } from "react";
+import { setNotes } from "../redux/action-creators/notes";
 
-interface INotesProps{
-    notes:INote[],
-}
 
-export default function NotesPanel({notes}:INotesProps){
 
-    const clickHandler = (index:number) => {
-       
+const NotepadPanel=()=>{
+
+    const {name}=useTypeSelector(state=>state.notes);
+
+    const divClickedHandler = (index:number) => {
+        const note=name[index];
+
+        setNotes();
     }
 
     return(
         <div className={style.NotesPanel}>
-            {
-                notes.map((name,index)=>
-                    <div key={index} onClick={()=>clickHandler} className={style.NotesPanel_NotesButtons}>{name.name}</div>
-                    )
-            }
         </div>
     )
 
 }
+
+export default NotepadPanel;
