@@ -1,0 +1,10 @@
+.ck .ck-editor__main{
+ 
+}
+.ck .ck-reset .ck-editor .ck-rounded-corners{
+height: 1000px;
+}
+.ck-blurred .ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline{
+    min-height: 1000px;
+}
+.ck .ck-editor__main>div{min-height: calc(100vh - 38.42px);}

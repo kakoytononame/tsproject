@@ -1,29 +1,34 @@
-import React, { useState, useRef, useMemo } from 'react';
-import JoditEditor from 'jodit-react';
-import style from '../styles/MiddleContext.module.css'
+import React, { Component } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import "../styles/Editorstyle.css"
+class Editor extends Component {
+    render() {
+        return (
+            <div className="Editor">
+                
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data="<p>Введите текст здесь</p>"
+                    
+                    onReady={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        console.log( 'Editor is ready to use!', editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        console.log( { event, editor, data } );
+                    } }
+                    onBlur={ ( event, editor ) => {
+                        console.log( 'Blur.', editor );
+                    } }
+                    onFocus={ ( event, editor ) => {
+                        console.log( 'Focus.', editor );
+                    } }
+                />
+            </div>
+        );
+    }
+}
 
-
-const Editor = ({ placeholder }) => {
-	const editor = useRef(null);
-	const [content, setContent] = useState('');
-	
-	const config = 
-		{
-			readonly: false, // all options from https://xdsoft.net/jodit/doc/,
-			placeholder: placeholder || 'Start typings...'
-		};
-		
-	
-
-	return (
-		<JoditEditor className=""
-			ref={editor}
-			value={content}
-			config={config}
-			tabIndex={1} // tabIndex of textarea
-			onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-			onChange={newContent => {}}
-		/>
-	);
-};
 export default Editor;
