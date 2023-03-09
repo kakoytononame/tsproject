@@ -11,7 +11,6 @@ export const setDirectory = () => {
         try{
                 
                 const result = await DirectoryService.getDirectorysByUser();
-                console.log(result);
                 dispatch({type:DirectorysActionTypes.FETCH_DIRECTORY_SUCCESS,payload:result})
             
         } catch (error) {

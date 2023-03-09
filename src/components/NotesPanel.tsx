@@ -3,6 +3,7 @@ import style from '../styles/NotesPanel.module.css';
 import { useTypeSelector } from "../hooks/useTypedSelector";
 import { FC } from "react";
 import { setNotes } from "../redux/action-creators/notes";
+import { Editor } from "tinymce";
 
 
 
@@ -17,8 +18,9 @@ const NotesPanel=()=>{
 
     return(
         <div className={style.NotesPanel}>
-            {name.map((name,index)=>
-                    <div key={index} onClick={(e)=>divClickedHandler(e,name.name)} className={style.NotesPanel_NotesButtons}>{name.name}</div>
+            {name.map((name,index,text)=>
+                    <div key={index} onClick={(e)=>divClickedHandler(e,name.name)} className={style.NotesPanel_NotesButtons}>{name.name}</div>,
+                    
                 )
                 }
         </div>
