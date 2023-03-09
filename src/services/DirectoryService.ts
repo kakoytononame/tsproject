@@ -1,3 +1,4 @@
+import axios from "axios";
 import { IDirectoryDTO } from "../interfaces/dto/IDirectoryDTO"
 import { api } from "./api"
 
@@ -10,6 +11,6 @@ const getDirectorysByUser = async ():Promise<IDirectoryDTO[]> => {
 
     return response.data;
 }
-export const chatService:IDirectoryService = {
+export const DirectoryService:IDirectoryService = {
     getDirectorysByUser
 }

@@ -10,6 +10,6 @@ const getNotesByUser = async ():Promise<INoteDTO[]> => {
 
     return response.data;
 }
-export const chatService:INoteService = {
+export const NoteService:INoteService = {
     getNotesByUser
 }

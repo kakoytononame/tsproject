@@ -10,6 +10,6 @@ const getNotepadsByUser = async ():Promise<INotepadDTO[]> => {
 
     return response.data;
 }
-export const chatService:INotepadService = {
+export const NotepadService:INotepadService = {
     getNotepadsByUser
 }

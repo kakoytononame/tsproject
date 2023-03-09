@@ -1,9 +1,10 @@
-import { IDirectorys, LoadTypes } from "../../types/types";
+import { IDirectoryDTO } from "../../interfaces/dto/IDirectoryDTO";
+import { LoadTypes } from "../../types/types";
 
 
 
 export interface IDirectorysState{
-    folders:IDirectorys[],
+    folders:IDirectoryDTO[],
     load:LoadTypes|null,
     error:string|null
 }
@@ -21,7 +22,7 @@ interface FetchDirectorysAction{
 
 interface FetchDirectorysSuccessAction{
     type:DirectorysActionTypes.FETCH_DIRECTORY_SUCCESS,
-    payload:IDirectorys[]
+    payload:IDirectoryDTO[]
 }
 
 interface FetchDirectorysErrorAction{
@@ -31,7 +32,7 @@ interface FetchDirectorysErrorAction{
 
 interface AddDirectoryAction{
     type:DirectorysActionTypes.ADD_DIRECTORY,
-    payload:IDirectorys
+    payload:IDirectoryDTO
 }
 
 export type DirectoryAction = FetchDirectorysAction | FetchDirectorysErrorAction | 
