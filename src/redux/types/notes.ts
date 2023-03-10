@@ -1,7 +1,8 @@
+import { INoteDTO } from "../../interfaces/dto/INoteDTO";
 import { INote, LoadTypes } from "../../types/types";
 
 export interface INoteState{
-    name:INote[],
+    name:INoteDTO[],
     load:LoadTypes|null,
     error:string|null
     
@@ -20,7 +21,7 @@ interface FetchNotesAction{
 
 interface FetchNotesSuccessAction{
     type:NotesActionTypes.FETCH_NOTE_SUCCES,
-    payload:INote[]
+    payload:INoteDTO[]
 }
 
 interface FetchNotesErrorAction{
@@ -30,7 +31,7 @@ interface FetchNotesErrorAction{
 
 interface AddNoteAction{
     type:NotesActionTypes.ADD_NOTE,
-    payload:INote
+    payload:INoteDTO
 }
 
 export type NoteAction = FetchNotesAction|FetchNotesSuccessAction|FetchNotesErrorAction|AddNoteAction;

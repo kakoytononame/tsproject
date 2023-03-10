@@ -1,10 +1,13 @@
 import React,{FC, useState} from "react";
-import { IDirectorys, INotepad } from "../types/types";
 import styles from "../styles/DirectoryPanel.module.css"
 import { useTypeSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
+import { IDirectoryDTO } from "../interfaces/dto/IDirectoryDTO";
 
-
+interface IDirectoryProps{
+    directory:IDirectoryDTO
+    
+}
 
 
 

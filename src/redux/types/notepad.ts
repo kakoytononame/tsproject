@@ -1,7 +1,8 @@
+import { INotepadDTO } from "../../interfaces/dto/INotepadDTO";
 import { INotepad, LoadTypes } from "../../types/types";
 
 export interface INotepadState{
-    notepads:INotepad[],
+    notepads:INotepadDTO[],
     load:LoadTypes|null,
     error:string|null
     
@@ -20,7 +21,7 @@ interface FetchNotepadsAction{
 
 interface FetchNotepadsSuccessAction{
     type:NotepadsActionTypes.FETCH_NOTEPAD_SUCCES,
-    payload:INotepad[]
+    payload:INotepadDTO[]
 }
 
 interface FetchNotepadsErrorAction{
@@ -30,7 +31,7 @@ interface FetchNotepadsErrorAction{
 
 interface AddNotepadAction{
     type:NotepadsActionTypes.ADD_NOTEPAD,
-    payload:INotepad
+    payload:INotepadDTO
 }
 
 export type NotepadAction = FetchNotepadsAction|FetchNotepadsSuccessAction|FetchNotepadsErrorAction|AddNotepadAction;

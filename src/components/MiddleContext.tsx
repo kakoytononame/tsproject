@@ -13,7 +13,7 @@ const MiddleContext=()=>{
     return(
         <div className={style.MiddleContext_DivContainer}>
                 <form method="post">
-                    <Editor></Editor>
+                    <Editor content="Введите текст здесь"></Editor>
                 </form>
             
         </div>
