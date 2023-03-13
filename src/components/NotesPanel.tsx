@@ -1,25 +1,23 @@
 import { INote } from "../types/types";
 import style from '../styles/NotesPanel.module.css';
 import { useTypeSelector } from "../hooks/useTypedSelector";
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { setNotes } from "../redux/action-creators/notes";
 import { Editor } from "tinymce";
+import React from "react";
 import { NoteContext } from "../contexts/NoteContext";
-import { notenames } from "../services";
 
 
 
 const NotesPanel=()=>{
 
     const {name}=useTypeSelector(state=>state.notes);
-    const {setContent}=useContext(NoteContext);
-
+    const {setContent} = React.useContext(NoteContext);
     const divClickedHandler = (event: React.MouseEvent<HTMLDivElement>,name0:string) => {
-        const note = name.find(p=>p.name==name0)
+        const note=name.find(p=>p.name===name0)
         if(note&&setContent){
-            setContent(note.text);
+            setContent(note.text)
         }
-        
     }
 
     return(
